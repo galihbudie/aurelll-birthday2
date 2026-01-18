@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buku Cinta</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:linear-gradient(135deg,#f7c1cc,#fbeee6);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+/* BACKGROUND */
+.float{
+  position:absolute;
+  bottom:-40px;
+  animation:naik 15s linear infinite;
+  opacity:.4;
+  font-size:20px;
+}
+@keyframes naik{to{transform:translateY(-110vh);}}
+
+/* BOOK */
+.book{
+  width:90%;
+  max-width:380px;
+  height:560px;
+  position:relative;
+}
+
+/* PAGE */
+.page{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#fffdf9;
+  border-radius:20px;
+  padding:26px;
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+  transition:transform .8s ease;
+  overflow:hidden;
+}
+.page.opened{transform:translateX(-115%);}
+
+/* DECOR */
+.corner{position:absolute;top:16px;left:16px;font-size:20px}
+.divider{
+  width:70px;height:2px;
+  background:#c38eb4;
+  margin:14px auto;border-radius:10px;
+}
+
+/* COVER */
+.cover{
+  background:linear-gradient(145deg,#f6b1c3,#e2b0ff);
+  color:white;text-align:center;
+}
+.cover h1{
+  font-family:'Playfair Display',serif;
+  font-size:32px;margin-top:20px;
+}
+.cover-photo{
+  width:190px;height:190px;
+  margin:22px auto;border-radius:50%;
+  border:6px solid rgba(255,255,255,.9);
+  background:#ddd center/cover no-repeat;
+}
+
+/* PHOTO */
+.photo{
+  width:210px;height:210px;
+  margin:20px auto;border-radius:16px;
+  background:#ddd center/cover no-repeat;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+/* STICKERS */
+.stickers{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:10px;
+  font-size:28px;
+}
+
+/* TEXT */
+h2{
+  font-family:'Playfair Display',serif;
+  color:#b76e79;text-align:center;
+}
+p{
+  color:#555;
+  font-size:15px;
+  line-height:1.75;
+  text-align:center;
+}
+.type-text{
+  min-height:150px;
+  white-space:pre-line;
+}
+
+/* CONTROLS */
+.controls{
+  position:absolute;
+  bottom:-72px;width:100%;
+  display:flex;justify-content:space-between;
+}
+button{
+  padding:10px 24px;
+  border:none;border-radius:30px;
+  background:#c38eb4;color:white;
+}
+
+/* END */
+.end{
+  background:linear-gradient(145deg,#fde2e4,#fadadd);
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgm" loop>
+  <source src="laguu.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="playMusic()" style="
+  margin-top:10px;
+  background:rgba(255,255,255,.85);
+  color:#b76e79;
+">
+  ▶ Putar Lagu
+</button>
+
+<script>
+function playMusic(){
+  document.getElementById("bgm").play();
+}
+</script>
+
+
+<span class="float" style="left:20%">🌸</span>
+<span class="float" style="left:45%">🤍</span>
+<span class="float" style="left:70%">🌹</span>
+
+<div class="book">
+
+<!-- COVER -->
+<div class="page cover">
+  <div class="corner">🌹</div>
+  <h1>Buku Kecil Untuk Aurelll</h1>
+  <p>Ditulis oleh bocil ngeyell</p>
+  <div class="cover-photo" style="background-image:url('cover.jpg')"></div>
+  <p>Untuk hari ulang tahunmu</p>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="corner">🌹</div>
+  <h2>Tentang Kamu</h2>
+  <div class="divider"></div>
+  <p class="type-text"
+     data-text="Kamu bukan hanya seseorang yang aku sayangi. Kamu adalah tempat aku merasa aman, tempat aku ingin pulang setelah hari yang panjang. Sejak kamu hadir, hal-hal sederhana terasa lebih berarti.">
+  </p>
+  <div class="stickers">🤍🌸✨</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="corner">🌹</div>
+  <h2>AURELL LUSYUUUUU</h2>
+  <div class="divider"></div>
+  <div class="photo" style="background-image:url('foto1.jpg')"></div>
+  <p class="type-text"
+     data-text="Aku mencintai setiap momen kecil bersama kamu. Cara kita tertawa, diam, dan saling memahami tanpa banyak kata. Semua itu ingin aku simpan selamanya.">
+  </p>
+  <div class="stickers">📸💖🌷</div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="corner">🌹</div>
+  <h2>Long text agak pendekkk</h2>
+  <div class="divider"></div>
+  <p class="type-text"
+     data-text="Selamat ulang tahun, cintaku. Terima kasih karena telah menjadi dirimu sendiri dan hadir dalam hidupku dengan cara yang paling indah. Aku mungkin tidak selalu sempurna, tapi cintaku padamu selalu utuh. Jika suatu hari kamu ragu, ingatlah bahwa aku selalu memilihmu, setiap hari.">
+  </p>
+  <div class="stickers">💌🥺🤍</div>
+</div>
+
+<!-- END PAGE -->
+<div class="page end">
+  <div class="corner">🌹</div>
+  <h2>Penutup tapi blom akhir <br> belakang ee sek adaa</h2>
+  <div class="divider"></div>
+  <p class="type-text"
+     data-text="Buku ini mungkin sederhana, tapi perasaanku padamu tidak pernah sesederhana itu. Terima kasih telah membaca sampai akhir. Semoga kisah kita terus berjalan, pelan-pelan, bersama.">
+  </p>
+  <div class="stickers">📖🤍🌹</div>
+</div>
+
+<!-- END PAGE -->
+<div class="page end">
+  <div class="corner">🌹</div>
+  <h2>LOVEEE UUUUU</h2>
+  <div class="divider"></div>
+  <p class="type-text"
+     data-text="LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU LOVEE UUU">
+  </p>
+  <div class="stickers">📖🤍🌹</div>
+</div>
+
+<!-- END PAGE -->
+<div class="page end">
+  <div class="corner">🌹</div>
+  <h2>AURELLL IMUTTT</h2>
+  <div class="divider"></div>
+  <p class="type-text"
+     data-text="AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT AURELLL IMUTTT ">
+  </p>
+  <div class="stickers">📖🤍🌹</div>
+</div>
+
+<!-- END PAGE -->
+<div class="page end">
+  <div class="corner">🌹</div>
+  <h2>AURELLL GEMASSS</h2>
+  <div class="divider"></div>
+  <p class="type-text"
+     data-text="AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS AURELLL GEMASSSS ">
+  </p>
+  <div class="stickers">📖🤍🌹</div>
+</div>
+
+<!-- END PAGE -->
+<div class="page end">
+  <div class="corner">🌹</div>
+  <h2>CIUMMM</h2>
+  <div class="divider"></div>
+  <p class="type-text"
+     data-text="MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH MWAHHHH ">
+  </p>
+  <div class="stickers">📖🤍🌹</div>
+</div>
+
+<!-- END PAGE -->
+<div class="page end">
+  <div class="corner">🌹</div>
+  <h2> reall penutup, ga ada lanjutanee</h2>
+  <div class="divider"></div>
+  <p class="type-text"
+     data-text="Terima kasih dari hati yang paling dalam karena kamu mau menerima aku apa adanya. Aku sungguh minta maaf atas semua kesalahanku yang membuatmu kecewa. ilovee uuu 4everr🤍🌹">
+  </p>
+  <div class="stickers">📖🤍🌹</div>
+</div>
+
+<div class="controls">
+  <button onclick="prev()">◀</button>
+  <button onclick="next()">▶</button>
+</div>
+
+</div>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+pages.forEach((p,i)=>p.style.zIndex=pages.length-i);
+let index=0;
+
+// NEXT
+function next(){
+  if(index<pages.length-1){
+    pages[index].classList.add("opened");
+    index++;
+    runTyping(pages[index]);
+  }
+}
+// PREV
+function prev(){
+  if(index>0){
+    index--;
+    pages[index].classList.remove("opened");
+  }
+}
+
+// TYPING SYSTEM
+function runTyping(page){
+  const el=page.querySelector('.type-text');
+  if(!el || el.dataset.done) return;
+  el.dataset.done=true;
+  const text=el.dataset.text;
+  let i=0;
+  function type(){
+    if(i<text.length){
+      el.innerHTML+=text.charAt(i++);
+      setTimeout(type,35);
+    }
+  }
+  type();
+}
+</script>
+
+</body>
+</html>
